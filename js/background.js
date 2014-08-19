@@ -1,3 +1,8 @@
 chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
-	chrome.pageAction.show(tabId);
+
+	var reg = /^.*\/\/www\.sudoku\.name\/.*$/;
+
+	if (reg.test(tab.url)) {
+		chrome.pageAction.show(tabId);
+	}
 });
